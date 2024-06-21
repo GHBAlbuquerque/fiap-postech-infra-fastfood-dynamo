@@ -43,7 +43,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
 #  }
 
   global_secondary_index {
-    name               = "OrderIndex"
+    name               = "OrderCreationDateIndex"
     hash_key           = "clientId"
     range_key          = "createdAt"
     write_capacity     = 1
@@ -53,7 +53,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   }
 
   global_secondary_index {
-    name               = "OrderIndex"
+    name               = "OrderValueIndex"
     hash_key           = "clientId"
     range_key          = "totalValue"
     write_capacity     = 1
