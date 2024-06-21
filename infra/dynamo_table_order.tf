@@ -26,15 +26,15 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "updatedAt"
-    type = "S"
-  }
-
-  attribute {
-    name = "paymentStatus"
-    type = "S"
-  }
+#  attribute {
+#    name = "updatedAt"
+#    type = "S"
+#  }
+#
+#  attribute {
+#    name = "paymentStatus"
+#    type = "S"
+#  }
 
 
 #  ttl {
@@ -46,6 +46,16 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
     name               = "OrderIndex"
     hash_key           = "clientId"
     range_key          = "createdAt"
+    write_capacity     = 1
+    read_capacity      = 1
+    projection_type    = "INCLUDE"
+    non_key_attributes = ["id"]
+  }
+
+  global_secondary_index {
+    name               = "OrderIndex"
+    hash_key           = "clientId"
+    range_key          = "totalValue"
     write_capacity     = 1
     read_capacity      = 1
     projection_type    = "INCLUDE"

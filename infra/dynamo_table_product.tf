@@ -21,25 +21,25 @@ resource "aws_dynamodb_table" "product-dynamodb-table" {
     type = "N"
   }
 
-  attribute {
-    name = "description"
-    type = "S"
-  }
+#  attribute {
+#    name = "description"
+#    type = "S"
+#  }
 
   attribute {
     name = "type"
     type = "S"
   }
 
-  attribute {
-    name = "createdAt"
-    type = "S"
-  }
-
-  attribute {
-    name = "updatedAt"
-    type = "S"
-  }
+#  attribute {
+#    name = "createdAt"
+#    type = "S"
+#  }
+#
+#  attribute {
+#    name = "updatedAt"
+#    type = "S"
+#  }
 
 #  ttl {
 #    attribute_name = "leaveDate"
