@@ -37,10 +37,10 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   }
 
 
-  ttl {
-    attribute_name = "leaveDate"
-    enabled        = false
-  }
+#  ttl {
+#    attribute_name = "leaveDate"
+#    enabled        = false
+#  }
 
   global_secondary_index {
     name               = "OrderIndex"

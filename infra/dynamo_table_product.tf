@@ -41,10 +41,10 @@ resource "aws_dynamodb_table" "product-dynamodb-table" {
     type = "S"
   }
 
-  ttl {
-    attribute_name = "leaveDate"
-    enabled        = false
-  }
+#  ttl {
+#    attribute_name = "leaveDate"
+#    enabled        = false
+#  }
 
   global_secondary_index {
     name               = "ProductIndex"
