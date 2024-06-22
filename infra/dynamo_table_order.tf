@@ -4,7 +4,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "id"
-  range_key      = "clientId"
+  range_key      = "customerId"
 
   attribute {
     name = "id"
@@ -12,7 +12,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   }
 
   attribute {
-    name = "clientId"
+    name = "customerId"
     type = "S"
   }
 
@@ -44,7 +44,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
 
   global_secondary_index {
     name               = "OrderCreationDateIndex"
-    hash_key           = "clientId"
+    hash_key           = "customerId"
     range_key          = "createdAt"
     write_capacity     = 1
     read_capacity      = 1
@@ -54,7 +54,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
 
   global_secondary_index {
     name               = "OrderValueIndex"
-    hash_key           = "clientId"
+    hash_key           = "customerId"
     range_key          = "totalValue"
     write_capacity     = 1
     read_capacity      = 1
