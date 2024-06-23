@@ -3,17 +3,17 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   billing_mode   = "PROVISIONED"
   read_capacity  = 5
   write_capacity = 5
-  hash_key       = "id"
+  hash_key       = "orderId"
   range_key      = "customerId"
 
   attribute {
-    name = "id"
+    name = "orderId"
     type = "S"
   }
 
   attribute {
     name = "customerId"
-    type = "S"
+    type = "N"
   }
 
   attribute {
