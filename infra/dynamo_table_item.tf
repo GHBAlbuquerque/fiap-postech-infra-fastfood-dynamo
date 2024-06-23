@@ -16,10 +16,10 @@ resource "aws_dynamodb_table" "item-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "quantity"
-    type = "N"
-  }
+#  attribute {
+#    name = "quantity"
+#    type = "N"
+#  }
 
   attribute {
     name = "itemValue"
