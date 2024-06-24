@@ -11,10 +11,10 @@ resource "aws_dynamodb_table" "product-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "name"
-    type = "S"
-  }
+#  attribute {
+#    name = "name"
+#    type = "S"
+#  }
 
   attribute {
     name = "price"
