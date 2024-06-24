@@ -4,7 +4,7 @@ resource "aws_dynamodb_table" "product-dynamodb-table" {
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "id"
-  range_key      = "name"
+  range_key      = "type"
 
   attribute {
     name = "id"
@@ -48,8 +48,8 @@ resource "aws_dynamodb_table" "product-dynamodb-table" {
 
   global_secondary_index {
     name               = "ProductIndex"
-    hash_key           = "price"
-    range_key          = "type"
+    hash_key           = "type"
+    range_key          = "price"
     write_capacity     = 1
     read_capacity      = 1
     projection_type    = "INCLUDE"
