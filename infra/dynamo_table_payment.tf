@@ -1,5 +1,5 @@
-resource "aws_dynamodb_table" "checkout-dynamodb-table" {
-  name           = "Checkout"
+resource "aws_dynamodb_table" "payment-dynamodb-table" {
+  name           = "Payment"
   billing_mode   = "PROVISIONED"
   read_capacity  = 5
   write_capacity = 5
@@ -29,7 +29,7 @@ resource "aws_dynamodb_table" "checkout-dynamodb-table" {
 
 
   global_secondary_index {
-    name               = "ChekoutStatusIndex"
+    name               = "PaymentStatusIndex"
     hash_key           = "orderId"
     range_key          = "status"
     write_capacity     = 1
@@ -39,7 +39,7 @@ resource "aws_dynamodb_table" "checkout-dynamodb-table" {
   }
 
   tags = {
-    Name        = "checkout-dynamodb-table"
+    Name        = "payment-dynamodb-table"
     Environment = "fiap-pos-tech"
   }
 }
