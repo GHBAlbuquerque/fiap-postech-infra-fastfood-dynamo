@@ -63,7 +63,7 @@ resource "aws_dynamodb_table" "order-dynamodb-table" {
   }
 
   tags = {
-    Name        = "product-dynamodb-table"
+    Name        = "order-dynamodb-table"
     Environment = "fiap-pos-tech"
   }
 }
