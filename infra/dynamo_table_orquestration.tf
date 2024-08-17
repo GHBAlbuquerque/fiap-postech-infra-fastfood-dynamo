@@ -3,11 +3,11 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
   billing_mode   = "PROVISIONED"
   read_capacity  = 5
   write_capacity = 5
-  hash_key       = "id"
+  hash_key       = "sagaId"
   range_key      = "stepId"
 
   attribute {
-    name = "id"
+    name = "sagaId"
     type = "S"
   }
 
@@ -21,10 +21,10 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
     type = "S"
   }
 
-#  attribute {
-#    name = "createdAt"
-#    type = "S"
-#  }
+  #  attribute {
+  #    name = "createdAt"
+  #    type = "S"
+  #  }
 
 
   global_secondary_index {
@@ -33,7 +33,7 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
     write_capacity     = 1
     read_capacity      = 1
     projection_type    = "INCLUDE"
-    non_key_attributes = ["id"]
+    non_key_attributes = ["sagaId"]
   }
 
   tags = {
