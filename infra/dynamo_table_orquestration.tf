@@ -4,9 +4,15 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "id"
+  range_key      = "stepId"
 
   attribute {
     name = "id"
+    type = "S"
+  }
+
+  attribute {
+    name = "stepId"
     type = "S"
   }
 
@@ -15,15 +21,10 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "step"
-    type = "S"
-  }
-
-  attribute {
-    name = "createdAt"
-    type = "S"
-  }
+#  attribute {
+#    name = "createdAt"
+#    type = "S"
+#  }
 
 
   global_secondary_index {
