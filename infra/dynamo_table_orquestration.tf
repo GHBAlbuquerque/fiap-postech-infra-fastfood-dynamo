@@ -4,17 +4,16 @@ resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "sagaId"
-  range_key      = "stepId"
 
   attribute {
     name = "sagaId"
     type = "S"
   }
 
-  attribute {
-    name = "stepId"
-    type = "S"
-  }
+#  attribute {
+#    name = "stepId"
+#    type = "S"
+#  }
 
   attribute {
     name = "orderId"
