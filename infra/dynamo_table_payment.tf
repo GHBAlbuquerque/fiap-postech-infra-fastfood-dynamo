@@ -11,10 +11,10 @@ resource "aws_dynamodb_table" "payment-dynamodb-table" {
     type = "S"
   }
 
-#  attribute {
-#    name = "orderId"
-#    type = "S"
-#  }
+  attribute {
+    name = "orderId"
+    type = "S"
+  }
 
   attribute {
     name = "status"
