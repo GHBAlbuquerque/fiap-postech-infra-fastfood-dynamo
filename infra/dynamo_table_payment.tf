@@ -4,7 +4,6 @@ resource "aws_dynamodb_table" "payment-dynamodb-table" {
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "id"
-  range_key      = "orderId"
 
 
   attribute {
@@ -12,10 +11,10 @@ resource "aws_dynamodb_table" "payment-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "orderId"
-    type = "S"
-  }
+#  attribute {
+#    name = "orderId"
+#    type = "S"
+#  }
 
   attribute {
     name = "status"
