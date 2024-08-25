@@ -1,24 +1,22 @@
-resource "aws_dynamodb_table" "checkout-dynamodb-table" {
-  name           = "Checkout"
+resource "aws_dynamodb_table" "orquestration-dynamodb-table" {
+  name           = "Orquestration"
   billing_mode   = "PROVISIONED"
   read_capacity  = 5
   write_capacity = 5
-  hash_key       = "id"
-  range_key      = "orderId"
-
+  hash_key       = "sagaId"
 
   attribute {
-    name = "id"
+    name = "sagaId"
     type = "S"
   }
+
+#  attribute {
+#    name = "stepId"
+#    type = "S"
+#  }
 
   attribute {
     name = "orderId"
-    type = "S"
-  }
-
-  attribute {
-    name = "status"
     type = "S"
   }
 
@@ -29,17 +27,16 @@ resource "aws_dynamodb_table" "checkout-dynamodb-table" {
 
 
   global_secondary_index {
-    name               = "ChekoutStatusIndex"
+    name               = "OrderIdIndex"
     hash_key           = "orderId"
-    range_key          = "status"
     write_capacity     = 1
     read_capacity      = 1
     projection_type    = "INCLUDE"
-    non_key_attributes = ["id"]
+    non_key_attributes = ["sagaId"]
   }
 
   tags = {
-    Name        = "checkout-dynamodb-table"
+    Name        = "orquestration-dynamodb-table"
     Environment = "fiap-pos-tech"
   }
 }
